@@ -5,18 +5,25 @@ void main() => runApp(const Login());
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
 
-  @optionalTypeArgs
-  static Future<T?> push<T extends Object?>(BuildContext context, Route<T> route) {
-    return Navigator.of(context).push(route);
-  }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    //return MaterialApp(
+      return Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: true,
+            //`true` if you want Flutter to automatically add Back Button when needed,
+            //or `false` if you want to force your own back button every where
+
+             backgroundColor: Colors.white,
+            title: Text('LOG IN', style: TextStyle(color: Colors.black),),
+            elevation: 0,
+          leading: IconButton(icon:Icon(Icons.arrow_back, color: Colors.black),
+          onPressed:() => Navigator.pop(context, false),
+          )
+        ),
         body: const MyStatefulWidget(),
-      ),
-    );
+      );
   }
 }
 
@@ -37,7 +44,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         padding: const EdgeInsets.all(10),
         child: ListView(
           children: <Widget>[
-
+            /*
             Container(
                 alignment: Alignment.topLeft,
                 padding: const EdgeInsets.all(10),
@@ -45,6 +52,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   'LOG IN',
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 )),
+             */
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
@@ -82,6 +90,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 )
             ),
           ],
-        ));
+        )
+    );
   }
 }

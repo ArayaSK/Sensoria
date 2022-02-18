@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'login.dart';
 import 'Register.dart';
 import 'package:flutter/widgets.dart';
@@ -80,21 +79,23 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(15),
                   ),
-                margin: EdgeInsets.all(30),
+                  margin: EdgeInsets.all(30),
 
-                child: FlatButton(
+                  child: FlatButton(
 
-                  child: Text('LogIn', style: TextStyle(fontSize: 20.0),),
-                  //color: Colors.black,
-                  textColor: Colors.white,
+                    child: Text('LogIn', style: TextStyle(fontSize: 20.0),),
+                    //color: Colors.black,
+                    textColor: Colors.white,
 
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Login()),
-                    );
-                  },
-                ))),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Login()),
+                      );
+                    },
+                  )
+                )
+              ),
               Expanded(
                   child: Container(
                       decoration: BoxDecoration(
@@ -115,8 +116,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                             MaterialPageRoute(builder: (context) => const Register()),
                           );
                         },
-                      )))]))));
-
+                      )
+                  )
+              )
+            ]
+          )
+        )
+      )
+    );
   }
 }
 

@@ -12,13 +12,26 @@ class Register extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: const MyStatefulWidget(),
+    //return MaterialApp(
+    return Scaffold(
+      appBar: AppBar(
+          automaticallyImplyLeading: true,
+          //`true` if you want Flutter to automatically add Back Button when needed,
+          //or `false` if you want to force your own back button every where
+          //theme: ThemeData(
+          backgroundColor: Colors.white,
+          //),
+          title: Text('CREATE A NEW ACCOUNT', style: TextStyle(color: Colors.black),),
+          elevation: 0,
+          leading: IconButton(icon:Icon(Icons.arrow_back, color: Colors.black),
+            onPressed:() => Navigator.pop(context, false),
+          )
       ),
+      body: const MyStatefulWidget(),
     );
   }
 }
+
 
 class MyStatefulWidget extends StatefulWidget {
   const MyStatefulWidget({Key? key}) : super(key: key);
@@ -38,7 +51,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         padding: const EdgeInsets.all(10),
         child: ListView(
           children: <Widget>[
-
+          /*
             Container(
                 alignment: Alignment.topLeft,
                 padding: const EdgeInsets.all(10),
@@ -46,6 +59,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   'CREATE A NEW ACCOUNT',
                   style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                 )),
+           */
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
@@ -99,7 +113,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               ),
             ),
 
-
             Container(
                 height: 70,
                 padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
@@ -115,6 +128,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 )
             ),
           ],
-        ));
+        )
+    );
   }
 }
