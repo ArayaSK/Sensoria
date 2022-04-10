@@ -1,29 +1,27 @@
 import 'package:flutter/material.dart';
+import 'home.dart';
 
 void main() => runApp(const Login());
 
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     //return MaterialApp(
-      return Scaffold(
-        appBar: AppBar(
+    return Scaffold(
+      appBar: AppBar(
           automaticallyImplyLeading: true,
-            //`true` if you want Flutter to automatically add Back Button when needed,
-            //or `false` if you want to force your own back button every where
-
-             backgroundColor: Colors.white,
-            title: Text('LOG IN', style: TextStyle(color: Colors.black),),
-            elevation: 0,
+          backgroundColor: Colors.white,
+          title: Text('LOG IN', style: TextStyle(color: Colors.black),),
+          elevation: 0,
           leading: IconButton(icon:Icon(Icons.arrow_back, color: Colors.black),
-          onPressed:() => Navigator.pop(context, false),
+            onPressed:() => Navigator.pop(context, false),
           )
-        ),
-        body: const MyStatefulWidget(),
-      );
+      ),
+
+      body: const MyStatefulWidget(),
+    );
   }
 }
 
@@ -53,7 +51,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 )),
              */
-            Container(
+            new Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
                 controller: nameController,
@@ -63,7 +61,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ),
             ),
-            Container(
+
+            new Container(
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: TextField(
                 obscureText: true,
@@ -75,19 +74,24 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               ),
             ),
 
-            Container(
+            new Container(
                 height: 70,
                 padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
                 child: ElevatedButton(
 
                   child: const Text('LOGIN'),
                   onPressed: () {
-                    print(nameController.text);
-                    print(passwordController.text);
+                    //print(nameController.text);
+                    //print(passwordController.text);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const home()),
+                    );
                   },
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.black),),
-                )
+                    backgroundColor: MaterialStateProperty.all(Colors.black),
+                  ),
+                ),
             ),
           ],
         )
