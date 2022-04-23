@@ -1,112 +1,33 @@
-import 'package:flutter/material.dart';
-import 'login.dart';
-//import 'register.dart';
-import 'oldregister.dart';
-import 'package:flutter/widgets.dart';
+// import 'dart:html';
 
-/*void main() {
-  runApp(MyStatefulApp());
-}*/
-void main() => runApp(MyApp());
+import 'package:camera/camera.dart';
+
+import 'screen/login_screen.dart';
+import 'screen/startPage.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
+import 'screen/home_screen.dart';
+//import 'package:sensoria/screen/camera_screen.dart';
+
+//List(CameraDescription)? cameras;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  //cameras = await availableCameras();
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MyStatefulWidget(),
-    );
-  }
-}
-
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
-
-  @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
-}
-
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.black,
-        body: Center(
-          child: Container(
-            height: 500,
-            width: 500,
-            child: Column(
-              children: <Widget>[
-                Image.asset('assets/images/Logo.png'),
-              ],
-            ),
-          ),
-        ),
-        bottomNavigationBar: BottomAppBar(
-            child: Container(
-                height: 100.0,
-                color: Colors.grey,
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      Expanded(
-                          child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              margin: EdgeInsets.all(30),
-                              child: FlatButton(
-                                child: Text(
-                                  'LogIn',
-                                  style: TextStyle(fontSize: 20.0),
-                                ),
-                                //color: Colors.black,
-                                textColor: Colors.white,
-
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => const Login()),
-                                  );
-                                },
-                              ))),
-                      Expanded(
-                          child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              margin: EdgeInsets.all(30),
-                              child: FlatButton(
-                                child: Text(
-                                  'Register',
-                                  style: TextStyle(fontSize: 20.0),
-                                ),
-                                //color: Colors.black,
-                                textColor: Colors.black,
-
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        //builder: (context) => const Register()),
-                                        builder: (context) =>
-                                            const OldRegister()),
-                                  );
-                                },
-                              )))
-                    ]))));
+    return MaterialApp(home: startPage());
   }
 }

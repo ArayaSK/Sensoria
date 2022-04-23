@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "829328556487",
+    "project_id": "sensoria-47f37",
+    "storage_bucket": "sensoria-47f37.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829328556487:android:79f2851611c49844d4d9e2",
+        "android_client_info": {
+          "package_name": "com.sensoria.sensoria"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829328556487-v00tt42uv8qvbbbq2dac61nc6t707hqq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3Ivv7vuHI0qEc_lHTlkBH-wBXAg-1XFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829328556487-v00tt42uv8qvbbbq2dac61nc6t707hqq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "829328556487-5ob635icjfq1bvoe7mi5uhg9kucbrhc7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sensoria"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
