@@ -5,6 +5,7 @@ import 'package:tflite/tflite.dart';
 import 'dart:math' as math;
 
 import 'package:sensoria/model/models.dart';
+
 typedef void Callback(List<dynamic> list, int h, int w);
 
 class Camera extends StatefulWidget {
@@ -15,7 +16,6 @@ class Camera extends StatefulWidget {
   Camera(this.cameras, this.model, this.setRecognitions);
   @override
   _CameraState createState() => new _CameraState();
-
 }
 
 class _CameraState extends State<Camera> {
@@ -58,47 +58,11 @@ class _CameraState extends State<Camera> {
                 int endTime = new DateTime.now().millisecondsSinceEpoch;
                 print("Detection took ${endTime - startTime}");
 
-                widget.setRecognitions(recognitions, img.height, img.width);
+                widget.setRecognitions(recognitions!, img.height, img.width);
 
                 isDetecting = false;
               });
             }
-            // else if (widget.model == posenet) {
-            //   Tflite.runPoseNetOnFrame(
-            //     bytesList: img.planes.map((plane) {
-            //       return plane.bytes;
-            //     }).toList(),
-            //     imageHeight: img.height,
-            //     imageWidth: img.width,
-            //     numResults: 2,
-            //   ).then((recognitions) {
-            //     int endTime = new DateTime.now().millisecondsSinceEpoch;
-            //     print("Detection took ${endTime - startTime}");
-            //
-            //     widget.setRecognitions(recognitions, img.height, img.width);
-            //
-            //     isDetecting = false;
-            //   });
-            // }
-            // else {
-            //   Tflite.detectObjectOnFrame(
-            //     bytesList: img.planes.map((plane) {
-            //       return plane.bytes;
-            //     }).toList(),
-            //     model: widget.model == yolo ? "YOLO" : "SSDMobileNet",
-            //     imageHeight: img.height,
-            //     imageWidth: img.width,
-            //     imageMean: widget.model == yolo ? 0 : 127.5,
-            //     imageStd: widget.model == yolo ? 255.0 : 127.5,
-            //     numResultsPerClass: 1,
-            //     threshold: widget.model == yolo ? 0.2 : 0.4,
-            //   ).then((recognitions) {
-            //     int endTime = new DateTime.now().millisecondsSinceEpoch;
-            //     print("Detection took ${endTime - startTime}");
-            //     widget.setRecognitions(recognitions, img.height, img.width);
-            //     isDetecting = false;
-            //   });
-            // }
           }
         });
       });
@@ -129,10 +93,10 @@ class _CameraState extends State<Camera> {
     return OverflowBox(
       maxHeight:
           screenRatio > previewRatio ? screenH : screenW / previewW * previewH,
-        // screenH,
+      // screenH,
       maxWidth:
           screenRatio > previewRatio ? screenH / previewH * previewW : screenW,
-        // screenW,
+      // screenW,
       child: CameraPreview(controller1),
     );
   }
